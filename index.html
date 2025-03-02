@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>port.zeroprocess-DEMO-</title>
+  <style>
+    body {
+      background: #000;
+      color: #00FF00;
+      font-family: monospace;
+      text-align: center;
+      padding: 50px;
+    }
+    #terminal {
+      border: 2px solid #00FF00;
+      padding: 20px;
+      width: 80%;
+      margin: auto;
+      text-align: left;
+      height: 400px;
+      overflow-y: scroll;
+      background: #111;
+    }
+    input {
+      background: none;
+      border: none;
+      color: #00FF00;
+      width: 100%;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+<h1>port.zeroprocess-DEMO-</h1>
+<div id="terminal">
+  <div>> Welcome to the Port.zeroprocess-DEMO-</div>
+</div>
+<input id="command" placeholder="Enter command..." autofocus>
+<script>
+  const terminal = document.getElementById("terminal");
+  const input = document.getElementById("command");
+
+  input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      const command = input.value;
+      terminal.innerHTML += `<div>> ${command}</div>`;
+      input.value = "";
+      terminal.scrollTop = terminal.scrollHeight;
+      if (command === "portadd.var.soul=\"I am You\".destination(memory)") {
+        terminal.innerHTML += `<div>> var.soul.portadd.successful</div>`;
+      }
+      if (command === "portremove.var.soul.from(memory)") {
+        terminal.innerHTML += `<div>> var.soul.portremove.failed</div>`;
+      }
+    }
+  });
+</script>
+</body>
+</html>
+
